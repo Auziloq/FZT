@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="form-container">
+        <div class="left-column">
+            <form id="accessible-form">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="What should we call you?" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message">Please enter a valid email address.</span>
+
+                <label for="password">Enter Password</label>
+                <input type="password" id="password" name="password" placeholder="xxxxxxxx" required>
+
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="xxxxxxxx" required>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <div class="progress-bar">
+                <div class="progress">
+                    <div class="progress-text">65%</div>
+                </div>
+            </div>
+            <h3>Profile Completeness</h3>
+            <div class="task-list">
+                <div class="task completed">
+                    <span class="task-text">Create Account</span>
+                </div>
+                <div class="task completed">
+                    <span class="task-text">Update Roadmap Progress</span>
+                </div>
+                <div class="task completed">
+                    <span class="task-text">Setup Public Profile</span>
+                </div>
+                <div class="task">
+                    <span class="task-text">Complete your first project</span>
+                </div>
+                <div class="task">
+                    <span class="task-text">Invite your Friends</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
