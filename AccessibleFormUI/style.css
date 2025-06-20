@@ -14,7 +14,6 @@ body {
 #form-container {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     gap: 3rem;
     border: 2px solid black;
     border-radius: 2rem;
@@ -136,6 +135,7 @@ body {
 }
 
 .progress {
+    --angle: 0;
     position: relative;
     display: flex;
     justify-content: center;
@@ -145,7 +145,13 @@ body {
     border-radius: 50%;
     margin-top: 1rem;
     background: conic-gradient(#000000 calc(var(--angle) * 3.6deg), #f4f4f4 0deg);
-    animation: loader 5s forwards infinite;
+    transition: --angle 0.75s linear;
+}
+
+.progress-text {
+    position: relative;
+    font-size: 1.5rem;
+    color: #000000;
 }
 
 .progress::before {
@@ -157,21 +163,44 @@ body {
     background-color: #f4f4f4;
 }
 
-@keyframes loader {
-    0% {
-        --angle: 0
-    }
-
-    100% {
-        --angle: 100
-    }
+.progress-text::after {
+    content: "0%";
 }
 
+#form-container:has(#name:invalid) .progress {
+    --angle: 0.25;
+}
 
-.progress-text {
-    position: relative;
-    font-size: 1.5rem;
-    color: #000000;
+#form-container:has(#name:valid) .progress {
+    --angle: 25;
+}
+
+#form-container:has(#name:valid) .progress-text::after {
+    content: "25%";
+}
+
+#form-container:has(#name:valid):has(#email:valid) .progress {
+    --angle: 50;
+}
+
+#form-container:has(#name:valid):has(#email:valid) .progress-text::after {
+    content: "50%";
+}
+
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid) .progress {
+    --angle: 75;
+}
+
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid) .progress-text::after {
+    content: "75%";
+}
+
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress {
+    --angle: 100;
+}
+
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress-text::after {
+    content: "100%";
 }
 
 input {
