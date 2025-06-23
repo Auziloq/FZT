@@ -195,24 +195,19 @@ body {
 }
 
 
-#form-container:has(#name:valid):has(#email:valid) .progress,
-#form-container:has(#name:valid):has(#password:valid) .progress,
-#form-container:has(#name:valid):has(#confirm-password:valid) .progress,
-#form-container:has(#email:valid):has(#password:valid) .progress,
-#form-container:has(#email:valid):has(#confirm-password:valid) .progress,
-#form-container:has(#password:valid):has(#confirm-password:valid) .progress {
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid),
+#form-container:has(#name:valid):has(#email:valid):has(#confirm-password:valid),
+#form-container:has(#name:valid):has(#password:valid):has(#confirm-password:valid),
+#form-container:has(#email:valid):has(#password:valid):has(#confirm-password:valid) {
     --angle: 75;
 }
 
-#form-container:has(#name:valid):has(#email:valid) .progress-text::after,
-#form-container:has(#name:valid):has(#password:valid) .progress-text::after,
-#form-container:has(#name:valid):has(#confirm-password:valid) .progress-text::after,
-#form-container:has(#email:valid):has(#password:valid) .progress-text::after,
-#form-container:has(#email:valid):has(#confirm-password:valid) .progress-text::after,
-#form-container:has(#password:valid):has(#confirm-password:valid) .progress-text::after {
+#form-container:has(#name:valid):has(#email:valid):has(#password:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#email:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#password:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress-text::after {
     content: "75%";
 }
-
 
 #form-container:has(#name:valid):has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress {
     --angle: 100;
