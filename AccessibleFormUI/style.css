@@ -135,7 +135,7 @@ body {
 }
 
 .progress {
-    --angle: 0;
+    --angle: 0.25;
     position: relative;
     display: flex;
     justify-content: center;
@@ -148,12 +148,6 @@ body {
     transition: --angle 0.75s linear;
 }
 
-.progress-text {
-    position: relative;
-    font-size: 1.5rem;
-    color: #000000;
-}
-
 .progress::before {
     content: "";
     position: absolute;
@@ -163,37 +157,62 @@ body {
     background-color: #f4f4f4;
 }
 
+.progress-text {
+    position: relative;
+    font-size: 1.5rem;
+    color: #000000;
+}
+
 .progress-text::after {
     content: "0%";
 }
 
-#form-container:has(#name:invalid) .progress {
-    --angle: 0.25;
-}
-
-#form-container:has(#name:valid) .progress {
+#form-container:has(:is(#name:valid, #email:valid, #password:valid, #confirm-password:valid)) .progress {
     --angle: 25;
 }
 
-#form-container:has(#name:valid) .progress-text::after {
+#form-container:has(:is(#name:valid, #email:valid, #password:valid, #confirm-password:valid)) .progress-text::after {
     content: "25%";
 }
 
-#form-container:has(#name:valid):has(#email:valid) .progress {
+
+#form-container:has(#name:valid):has(#email:valid) .progress,
+#form-container:has(#name:valid):has(#password:valid) .progress,
+#form-container:has(#name:valid):has(#confirm-password:valid) .progress,
+#form-container:has(#email:valid):has(#password:valid) .progress,
+#form-container:has(#email:valid):has(#confirm-password:valid) .progress,
+#form-container:has(#password:valid):has(#confirm-password:valid) .progress {
     --angle: 50;
 }
 
-#form-container:has(#name:valid):has(#email:valid) .progress-text::after {
+#form-container:has(#name:valid):has(#email:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#password:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#email:valid):has(#password:valid) .progress-text::after,
+#form-container:has(#email:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#password:valid):has(#confirm-password:valid) .progress-text::after {
     content: "50%";
 }
 
-#form-container:has(#name:valid):has(#email:valid):has(#password:valid) .progress {
+
+#form-container:has(#name:valid):has(#email:valid) .progress,
+#form-container:has(#name:valid):has(#password:valid) .progress,
+#form-container:has(#name:valid):has(#confirm-password:valid) .progress,
+#form-container:has(#email:valid):has(#password:valid) .progress,
+#form-container:has(#email:valid):has(#confirm-password:valid) .progress,
+#form-container:has(#password:valid):has(#confirm-password:valid) .progress {
     --angle: 75;
 }
 
-#form-container:has(#name:valid):has(#email:valid):has(#password:valid) .progress-text::after {
+#form-container:has(#name:valid):has(#email:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#password:valid) .progress-text::after,
+#form-container:has(#name:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#email:valid):has(#password:valid) .progress-text::after,
+#form-container:has(#email:valid):has(#confirm-password:valid) .progress-text::after,
+#form-container:has(#password:valid):has(#confirm-password:valid) .progress-text::after {
     content: "75%";
 }
+
 
 #form-container:has(#name:valid):has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress {
     --angle: 100;
@@ -202,6 +221,8 @@ body {
 #form-container:has(#name:valid):has(#email:valid):has(#password:valid):has(#confirm-password:valid) .progress-text::after {
     content: "100%";
 }
+
+
 
 input {
     padding: 0.75rem;
@@ -236,9 +257,8 @@ button {
     background-color: black;
     color: white;
     border: none;
-    padding: 0.5rem;
+    padding: 1.3rem;
     width: 96%;
-    height: 3.5rem;
     border-radius: 15px;
     cursor: pointer;
     font-size: 1.5rem;
@@ -323,13 +343,16 @@ h3 {
     .right-column {
         width: 100%;
     }
+
     .task-list {
         width: 50%;
         line-height: 1.5rem;
     }
+
     button {
         width: 60%;
     }
+
     #accessible-form {
         display: flex;
         align-items: center;
