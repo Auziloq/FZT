@@ -140,6 +140,7 @@ label {
     initial-value: 0;
 }
 
+
 .progress {
     --angle: 0;
     position: relative;
@@ -150,7 +151,7 @@ label {
     height: 110px;
     border-radius: 50%;
     margin-top: 1rem;
-    background: conic-gradient(#000000 calc(var(--angle) * 3.6deg), #f4f4f4 0deg);
+    background: conic-gradient(#000000 calc(var(--angle) * 3.6deg), #e3e3e3 0deg);
     transition: --angle 0.75s linear;
 }
 
@@ -429,7 +430,6 @@ h3 {
         display: flex;
         align-items: center;
         flex-direction: column;
-        gap: 2rem;
     }
 
     label {
